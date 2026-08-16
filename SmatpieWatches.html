@@ -1,0 +1,1684 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Smatpie Watches — Timepieces, Tended for a Lifetime</title>
+<meta name="description" content="Smatpie Watches sells fine watches and accessories and repairs them by hand at our own bench. Shop the collection or book a repair.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=Inter:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0f141b;
+    --ink-2:#0c1016;
+    --panel:#161d27;
+    --panel-2:#1d2530;
+    --paper:#ede7da;
+    --paper-dim:#c9c2b3;
+    --muted:#8d97a6;
+    --brass:#c6a15b;
+    --brass-soft:#c6a15b33;
+    --brass-line:#c6a15b40;
+    --danger:#c67a5b;
+    --radius:2px;
+    --maxw:1180px;
+    --nav-h:64px;
+  }
+
+  *,*::before,*::after{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *,*::before,*::after{animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important; scroll-behavior:auto !important;}
+  }
+
+  body{
+    margin:0;
+    background:var(--ink);
+    color:var(--paper);
+    font-family:'Inter',system-ui,-apple-system,'Segoe UI',sans-serif;
+    font-size:16px;
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  h1,h2,h3,h4{
+    font-family:'Fraunces',Georgia,'Times New Roman',serif;
+    font-weight:600;
+    margin:0;
+    color:var(--paper);
+    letter-spacing:-0.01em;
+  }
+
+  a{color:inherit;}
+  img,svg{display:block; max-width:100%;}
+  button{font-family:inherit;}
+  ul{margin:0; padding:0; list-style:none;}
+  p{margin:0;}
+
+  .mono{
+    font-family:'Space Mono',ui-monospace,monospace;
+  }
+
+  ::selection{background:var(--brass); color:var(--ink);}
+
+  :focus-visible{
+    outline:2px solid var(--brass);
+    outline-offset:3px;
+  }
+
+  .container{
+    width:100%;
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:0 20px;
+  }
+
+  .visually-hidden{
+    position:absolute; width:1px; height:1px; padding:0; margin:-1px;
+    overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0;
+  }
+
+  /* ---------- Buttons ---------- */
+  .btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+    padding:13px 24px;
+    border-radius:var(--radius);
+    border:1px solid transparent;
+    font-family:'Space Mono',monospace;
+    font-size:13px;
+    letter-spacing:0.06em;
+    text-transform:uppercase;
+    cursor:pointer;
+    text-decoration:none;
+    transition:background .18s ease, color .18s ease, border-color .18s ease, transform .12s ease;
+    background:none;
+    line-height:1;
+  }
+  .btn:active{transform:translateY(1px);}
+  .btn-primary{
+    background:var(--brass);
+    color:var(--ink);
+    border-color:var(--brass);
+  }
+  .btn-primary:hover{background:#d6b06c; border-color:#d6b06c;}
+  .btn-ghost{
+    background:transparent;
+    color:var(--paper);
+    border-color:var(--brass-line);
+  }
+  .btn-ghost:hover{border-color:var(--brass); color:var(--brass);}
+  .btn-block{width:100%;}
+  .btn-sm{padding:9px 16px; font-size:12px;}
+
+  /* ---------- Nav ---------- */
+  header.site-header{
+    position:fixed; top:0; left:0; right:0; z-index:100;
+    height:var(--nav-h);
+    display:flex; align-items:center;
+    background:rgba(15,20,27,0.86);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid transparent;
+    transition:border-color .2s ease, background .2s ease;
+  }
+  header.site-header.scrolled{
+    border-bottom-color:var(--brass-line);
+    background:rgba(12,16,22,0.94);
+  }
+  .nav-inner{
+    width:100%; max-width:var(--maxw); margin:0 auto; padding:0 20px;
+    display:flex; align-items:center; justify-content:space-between;
+  }
+  .brand{
+    display:flex; align-items:center; gap:10px;
+    text-decoration:none;
+    font-family:'Fraunces',serif;
+    font-weight:600;
+    font-size:18px;
+    letter-spacing:0.01em;
+    color:var(--paper);
+  }
+  .brand-mark{width:26px; height:26px; flex:none;}
+  .brand-sub{
+    display:none;
+  }
+  nav.primary-nav{
+    display:none;
+  }
+  .nav-links{
+    display:flex; gap:28px; align-items:center;
+  }
+  .nav-links a{
+    text-decoration:none;
+    font-family:'Space Mono',monospace;
+    font-size:12.5px;
+    letter-spacing:0.05em;
+    text-transform:uppercase;
+    color:var(--paper-dim);
+    padding:6px 0;
+    border-bottom:1px solid transparent;
+    transition:color .15s ease, border-color .15s ease;
+  }
+  .nav-links a:hover{color:var(--brass); border-color:var(--brass);}
+
+  .nav-actions{display:flex; align-items:center; gap:8px;}
+
+  .icon-btn{
+    background:none; border:1px solid transparent; cursor:pointer;
+    color:var(--paper); padding:8px; border-radius:var(--radius);
+    display:inline-flex; align-items:center; justify-content:center;
+    position:relative;
+  }
+  .icon-btn:hover{color:var(--brass);}
+  .icon-btn svg{width:20px; height:20px;}
+
+  .cart-count{
+    position:absolute; top:2px; right:1px;
+    background:var(--brass); color:var(--ink);
+    font-family:'Space Mono',monospace;
+    font-size:10px; font-weight:700;
+    min-width:15px; height:15px; border-radius:50%;
+    display:flex; align-items:center; justify-content:center;
+    padding:0 3px;
+    transform:translate(30%,-30%);
+  }
+  .cart-count[data-count="0"]{display:none;}
+
+  .hamburger{
+    display:inline-flex; flex-direction:column; gap:4px;
+    background:none; border:none; cursor:pointer; padding:10px 6px;
+  }
+  .hamburger span{
+    width:20px; height:2px; background:var(--paper); display:block;
+    transition:transform .2s ease, opacity .2s ease;
+  }
+  .hamburger.open span:nth-child(1){transform:translateY(6px) rotate(45deg);}
+  .hamburger.open span:nth-child(2){opacity:0;}
+  .hamburger.open span:nth-child(3){transform:translateY(-6px) rotate(-45deg);}
+
+  .mobile-menu{
+    position:fixed; top:var(--nav-h); left:0; right:0; bottom:0;
+    background:var(--ink-2);
+    z-index:99;
+    padding:28px 20px;
+    display:flex; flex-direction:column; gap:2px;
+    transform:translateX(100%);
+    transition:transform .28s ease;
+    overflow-y:auto;
+  }
+  .mobile-menu.open{transform:translateX(0);}
+  .mobile-menu a{
+    text-decoration:none; color:var(--paper);
+    font-family:'Fraunces',serif; font-size:24px; font-weight:500;
+    padding:14px 0;
+    border-bottom:1px solid #ffffff12;
+  }
+  .mobile-menu .mm-foot{
+    margin-top:auto; padding-top:24px;
+    font-family:'Space Mono',monospace; font-size:12px; color:var(--muted);
+  }
+
+  /* ---------- Hero ---------- */
+  .hero{
+    position:relative;
+    padding:calc(var(--nav-h) + 56px) 0 64px;
+    overflow:hidden;
+  }
+  .hero-grid{
+    display:flex; flex-direction:column; gap:36px;
+  }
+  .eyebrow{
+    font-family:'Space Mono',monospace;
+    font-size:12px;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--brass);
+    display:flex; align-items:center; gap:10px;
+  }
+  .eyebrow::before{
+    content:"";
+    width:22px; height:1px; background:var(--brass);
+  }
+  .hero h1{
+    font-size:clamp(2.4rem, 9vw, 4.1rem);
+    line-height:1.03;
+    margin-top:16px;
+  }
+  .hero h1 em{
+    font-style:italic;
+    color:var(--brass);
+    font-weight:500;
+  }
+  .hero-lede{
+    margin-top:20px;
+    max-width:46ch;
+    color:var(--paper-dim);
+    font-size:1.05rem;
+  }
+  .hero-cta{
+    margin-top:30px;
+    display:flex; flex-wrap:wrap; gap:14px;
+  }
+  .hero-art{
+    position:relative;
+    width:100%;
+    max-width:420px;
+    margin:0 auto;
+    aspect-ratio:1/1;
+  }
+  .hero-stats{
+    margin-top:36px;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:16px;
+    border-top:1px solid var(--brass-line);
+    padding-top:22px;
+  }
+  .hero-stat .num{
+    font-family:'Space Mono',monospace;
+    font-size:1.5rem; color:var(--brass); font-weight:700;
+  }
+  .hero-stat .label{
+    font-size:11.5px; color:var(--muted); text-transform:uppercase; letter-spacing:0.06em; margin-top:4px;
+  }
+
+  /* balance wheel animation */
+  .balance-group{
+    transform-origin:300px 300px;
+    animation:tick 2.4s cubic-bezier(.45,0,.55,1) infinite;
+  }
+  @keyframes tick{
+    0%{transform:rotate(-9deg);}
+    50%{transform:rotate(9deg);}
+    100%{transform:rotate(-9deg);}
+  }
+  .gear-slow{
+    transform-origin:center;
+    animation:spin 40s linear infinite;
+  }
+  .gear-slow-rev{
+    transform-origin:center;
+    animation:spinrev 30s linear infinite;
+  }
+  @keyframes spin{ to{ transform:rotate(360deg);} }
+  @keyframes spinrev{ to{ transform:rotate(-360deg);} }
+
+  /* ---------- Section shell ---------- */
+  section{
+    padding:72px 0;
+    border-top:1px solid #ffffff0f;
+  }
+  .section-head{
+    margin-bottom:40px;
+    max-width:60ch;
+  }
+  .section-head h2{
+    font-size:clamp(1.9rem, 5vw, 2.6rem);
+    margin-top:14px;
+  }
+  .section-head p{
+    margin-top:14px;
+    color:var(--paper-dim);
+  }
+  .section-head.center{
+    margin-left:auto; margin-right:auto; text-align:center;
+  }
+  .section-head.center .eyebrow{justify-content:center;}
+  .section-head.center .eyebrow::before{display:none;}
+
+  /* ---------- Shop ---------- */
+  .filter-row{
+    display:flex; gap:10px; flex-wrap:wrap;
+    margin-bottom:28px;
+  }
+  .filter-btn{
+    font-family:'Space Mono',monospace;
+    font-size:12px; letter-spacing:0.05em; text-transform:uppercase;
+    background:none; border:1px solid var(--brass-line);
+    color:var(--paper-dim);
+    padding:8px 14px; border-radius:20px;
+    cursor:pointer;
+    transition:all .15s ease;
+  }
+  .filter-btn:hover{color:var(--brass); border-color:var(--brass);}
+  .filter-btn.active{background:var(--brass); color:var(--ink); border-color:var(--brass);}
+
+  .product-grid{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:22px;
+  }
+  .product-card{
+    background:var(--panel);
+    border:1px solid #ffffff10;
+    border-radius:var(--radius);
+    padding:22px;
+    display:flex;
+    flex-direction:column;
+    gap:14px;
+    transition:border-color .2s ease, transform .2s ease;
+  }
+  .product-card:hover{border-color:var(--brass-line); transform:translateY(-2px);}
+  .product-visual{
+    width:100%; aspect-ratio:4/3;
+    border:1px solid var(--brass-line);
+    border-radius:var(--radius);
+    display:flex; align-items:center; justify-content:center;
+    background:
+      radial-gradient(circle at 30% 20%, #ffffff08, transparent 60%),
+      var(--ink);
+    padding:18px;
+  }
+  .product-visual svg{width:70%; height:70%;}
+  .product-cat{
+    font-family:'Space Mono',monospace; font-size:10.5px;
+    color:var(--brass); text-transform:uppercase; letter-spacing:0.08em;
+  }
+  .product-card h3{font-size:1.25rem; margin-top:2px;}
+  .product-desc{color:var(--paper-dim); font-size:0.92rem;}
+  .spec-list{
+    font-family:'Space Mono',monospace; font-size:11.5px; color:var(--muted);
+    display:flex; flex-direction:column; gap:4px;
+    border-top:1px dashed var(--brass-line);
+    padding-top:12px;
+  }
+  .spec-list span{color:var(--paper-dim);}
+  .product-foot{
+    margin-top:auto;
+    display:flex; align-items:center; justify-content:space-between;
+    gap:12px; padding-top:6px;
+  }
+  .price{
+    font-family:'Space Mono',monospace; font-weight:700; font-size:1.15rem; color:var(--paper);
+  }
+  .add-btn{
+    font-family:'Space Mono',monospace; font-size:11.5px; letter-spacing:0.05em; text-transform:uppercase;
+    background:transparent; border:1px solid var(--brass); color:var(--brass);
+    padding:9px 14px; border-radius:var(--radius); cursor:pointer;
+    transition:background .15s ease, color .15s ease;
+    white-space:nowrap;
+  }
+  .add-btn:hover{background:var(--brass); color:var(--ink);}
+  .add-btn.added{background:var(--brass); color:var(--ink);}
+
+  /* ---------- Services ---------- */
+  .service-grid{
+    display:grid; grid-template-columns:1fr; gap:1px;
+    background:#ffffff10;
+    border:1px solid #ffffff10;
+  }
+  .service-row{
+    background:var(--ink);
+    padding:22px;
+    display:flex; flex-direction:column; gap:8px;
+  }
+  .service-row .top{
+    display:flex; justify-content:space-between; align-items:baseline; gap:12px;
+  }
+  .service-row h3{font-size:1.1rem;}
+  .service-price{font-family:'Space Mono',monospace; color:var(--brass); font-size:0.95rem; white-space:nowrap;}
+  .service-row p{color:var(--paper-dim); font-size:0.92rem;}
+
+  .service-cta{
+    margin-top:36px;
+    display:flex; flex-direction:column; gap:16px;
+    align-items:flex-start;
+  }
+
+  /* ---------- Process timeline ---------- */
+  .process{
+    display:flex; flex-direction:column; gap:0;
+    counter-reset:step;
+  }
+  .process-step{
+    display:grid; grid-template-columns:56px 1fr; gap:16px;
+    padding:20px 0;
+    border-bottom:1px solid #ffffff12;
+  }
+  .process-step:last-child{border-bottom:none;}
+  .step-num{
+    font-family:'Space Mono',monospace; font-size:1.1rem; color:var(--brass);
+    display:flex; align-items:flex-start; padding-top:2px;
+  }
+  .process-step h4{font-size:1.05rem;}
+  .process-step p{margin-top:6px; color:var(--paper-dim); font-size:0.92rem;}
+
+  /* ---------- About ---------- */
+  .about-wrap{
+    display:grid; grid-template-columns:1fr; gap:36px; align-items:start;
+  }
+  .about-figures{
+    display:grid; grid-template-columns:1fr 1fr; gap:14px;
+  }
+  .fig{
+    border:1px solid var(--brass-line); padding:18px; border-radius:var(--radius);
+  }
+  .fig .num{font-family:'Space Mono',monospace; color:var(--brass); font-size:1.6rem; font-weight:700;}
+  .fig .lbl{font-size:11.5px; color:var(--muted); text-transform:uppercase; letter-spacing:0.05em; margin-top:6px;}
+  .about-copy p + p{margin-top:16px;}
+  .about-copy p{color:var(--paper-dim);}
+
+  /* ---------- Testimonials ---------- */
+  .quote-grid{
+    display:grid; grid-template-columns:1fr; gap:18px;
+  }
+  .quote-card{
+    background:var(--panel);
+    border:1px solid #ffffff10;
+    padding:26px;
+    border-radius:var(--radius);
+  }
+  .quote-mark{font-family:'Fraunces',serif; font-style:italic; color:var(--brass); font-size:2rem; line-height:0.6; display:block; margin-bottom:10px;}
+  .quote-card p.quote-text{font-family:'Fraunces',serif; font-size:1.1rem; font-weight:500; color:var(--paper);}
+  .quote-attrib{margin-top:16px; font-family:'Space Mono',monospace; font-size:11.5px; color:var(--muted); text-transform:uppercase; letter-spacing:0.04em;}
+
+  /* ---------- Booking form ---------- */
+  .book-wrap{
+    display:grid; grid-template-columns:1fr; gap:36px;
+  }
+  .form-card{
+    background:var(--panel);
+    border:1px solid #ffffff10;
+    padding:26px;
+    border-radius:var(--radius);
+  }
+  .field{margin-bottom:18px;}
+  .field label{
+    display:block; font-family:'Space Mono',monospace; font-size:11.5px;
+    text-transform:uppercase; letter-spacing:0.05em; color:var(--paper-dim);
+    margin-bottom:8px;
+  }
+  .field .req{color:var(--brass);}
+  .field input,
+  .field select,
+  .field textarea{
+    width:100%;
+    background:var(--ink);
+    border:1px solid #ffffff20;
+    color:var(--paper);
+    padding:12px 14px;
+    border-radius:var(--radius);
+    font-family:'Inter',sans-serif;
+    font-size:0.95rem;
+  }
+  .field input:focus,
+  .field select:focus,
+  .field textarea:focus{
+    border-color:var(--brass);
+    outline:none;
+  }
+  .field textarea{resize:vertical; min-height:90px;}
+  .field-row{display:grid; grid-template-columns:1fr; gap:18px;}
+  .field-error{
+    font-family:'Space Mono',monospace; font-size:11px; color:var(--danger);
+    margin-top:6px; display:none;
+  }
+  .field.invalid input,
+  .field.invalid select,
+  .field.invalid textarea{border-color:var(--danger);}
+  .field.invalid .field-error{display:block;}
+
+  .form-confirm{
+    display:none;
+    border:1px solid var(--brass-line);
+    background:#c6a15b12;
+    padding:22px;
+    border-radius:var(--radius);
+    margin-top:18px;
+  }
+  .form-confirm.show{display:block;}
+  .form-confirm .ref{
+    font-family:'Space Mono',monospace; color:var(--brass); font-weight:700; font-size:1.1rem;
+  }
+
+  .service-list-side{
+    display:flex; flex-direction:column; gap:14px;
+  }
+  .side-note{
+    border-left:2px solid var(--brass);
+    padding-left:16px;
+  }
+  .side-note h4{font-size:1rem;}
+  .side-note p{color:var(--paper-dim); font-size:0.9rem; margin-top:6px;}
+
+  /* ---------- FAQ ---------- */
+  .faq-list{
+    border-top:1px solid #ffffff14;
+  }
+  .faq-item{
+    border-bottom:1px solid #ffffff14;
+  }
+  .faq-q{
+    width:100%;
+    display:flex; align-items:center; justify-content:space-between; gap:16px;
+    background:none; border:none; text-align:left;
+    padding:20px 0;
+    cursor:pointer;
+    color:var(--paper);
+  }
+  .faq-q h3{font-size:1.05rem; font-weight:500; font-family:'Fraunces',serif;}
+  .faq-icon{
+    flex:none; width:20px; height:20px; position:relative;
+  }
+  .faq-icon::before, .faq-icon::after{
+    content:""; position:absolute; background:var(--brass);
+    top:50%; left:50%; transform:translate(-50%,-50%);
+  }
+  .faq-icon::before{width:14px; height:2px;}
+  .faq-icon::after{width:2px; height:14px; transition:transform .2s ease;}
+  .faq-item.open .faq-icon::after{transform:translate(-50%,-50%) rotate(90deg); opacity:0;}
+  .faq-a{
+    max-height:0; overflow:hidden; transition:max-height .25s ease;
+  }
+  .faq-a p{color:var(--paper-dim); padding-bottom:20px; max-width:65ch; font-size:0.94rem;}
+
+  /* ---------- Contact ---------- */
+  .contact-wrap{
+    display:grid; grid-template-columns:1fr; gap:36px;
+  }
+  .contact-block{display:flex; flex-direction:column; gap:22px;}
+  .contact-line{display:flex; gap:14px; align-items:flex-start;}
+  .contact-line svg{width:20px; height:20px; flex:none; color:var(--brass); margin-top:2px;}
+  .contact-line a{text-decoration:none;}
+  .contact-line a:hover{color:var(--brass);}
+  .hours-table{width:100%; border-collapse:collapse; font-size:0.92rem;}
+  .hours-table td{padding:6px 0; border-bottom:1px solid #ffffff10;}
+  .hours-table td:last-child{text-align:right; font-family:'Space Mono',monospace; color:var(--paper-dim);}
+
+  .newsletter{
+    background:var(--panel);
+    border:1px solid #ffffff10;
+    padding:22px;
+    border-radius:var(--radius);
+  }
+  .newsletter h3{font-size:1.1rem;}
+  .newsletter p{color:var(--paper-dim); font-size:0.9rem; margin-top:6px;}
+  .newsletter-form{display:flex; flex-direction:column; gap:10px; margin-top:16px;}
+  .newsletter-confirm{display:none; color:var(--brass); font-family:'Space Mono',monospace; font-size:0.85rem; margin-top:12px;}
+  .newsletter-confirm.show{display:block;}
+
+  /* ---------- Footer ---------- */
+  footer{
+    border-top:1px solid var(--brass-line);
+    padding:48px 0 28px;
+    background:var(--ink-2);
+  }
+  .footer-grid{
+    display:grid; grid-template-columns:1fr; gap:34px;
+  }
+  .footer-brand .brand{margin-bottom:12px;}
+  .footer-brand p{color:var(--muted); font-size:0.88rem; max-width:36ch;}
+  .footer-col h4{
+    font-family:'Space Mono',monospace; font-size:11.5px; text-transform:uppercase;
+    letter-spacing:0.06em; color:var(--brass); margin-bottom:14px;
+  }
+  .footer-col ul{display:flex; flex-direction:column; gap:10px;}
+  .footer-col a{text-decoration:none; color:var(--paper-dim); font-size:0.92rem;}
+  .footer-col a:hover{color:var(--brass);}
+  .footer-bottom{
+    margin-top:40px; padding-top:22px; border-top:1px solid #ffffff10;
+    display:flex; flex-direction:column; gap:10px;
+    font-family:'Space Mono',monospace; font-size:11.5px; color:var(--muted);
+  }
+
+  /* ---------- Cart Drawer ---------- */
+  .overlay{
+    position:fixed; inset:0; background:#00000070; z-index:198;
+    opacity:0; pointer-events:none; transition:opacity .2s ease;
+  }
+  .overlay.open{opacity:1; pointer-events:auto;}
+  .drawer{
+    position:fixed; top:0; right:0; bottom:0; width:100%; max-width:420px;
+    background:var(--panel); z-index:199;
+    transform:translateX(100%); transition:transform .28s ease;
+    display:flex; flex-direction:column;
+    border-left:1px solid var(--brass-line);
+  }
+  .drawer.open{transform:translateX(0);}
+  .drawer-head{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:20px; border-bottom:1px solid #ffffff14;
+  }
+  .drawer-head h3{font-size:1.2rem;}
+  .drawer-body{flex:1; overflow-y:auto; padding:20px;}
+  .cart-empty{color:var(--muted); font-size:0.92rem; text-align:center; padding:40px 0;}
+  .cart-item{
+    display:grid; grid-template-columns:56px 1fr auto; gap:12px;
+    padding:14px 0; border-bottom:1px solid #ffffff12;
+    align-items:center;
+  }
+  .cart-item-visual{
+    width:56px; height:56px; border:1px solid var(--brass-line); border-radius:var(--radius);
+    display:flex; align-items:center; justify-content:center; background:var(--ink);
+  }
+  .cart-item-visual svg{width:60%; height:60%;}
+  .cart-item h5{font-size:0.92rem; font-weight:600; font-family:'Inter',sans-serif;}
+  .cart-item .cart-item-price{font-family:'Space Mono',monospace; font-size:0.85rem; color:var(--brass); margin-top:4px;}
+  .qty-row{display:flex; align-items:center; gap:8px; margin-top:8px;}
+  .qty-btn{
+    width:22px; height:22px; border:1px solid var(--brass-line); background:none; color:var(--paper);
+    cursor:pointer; border-radius:var(--radius); font-family:'Space Mono',monospace; line-height:1;
+  }
+  .qty-btn:hover{border-color:var(--brass); color:var(--brass);}
+  .cart-remove{
+    background:none; border:none; color:var(--muted); cursor:pointer;
+    font-family:'Space Mono',monospace; font-size:11px; text-decoration:underline;
+    justify-self:end; align-self:start;
+  }
+  .cart-remove:hover{color:var(--danger);}
+  .drawer-foot{
+    padding:20px; border-top:1px solid #ffffff14;
+  }
+  .cart-total{
+    display:flex; justify-content:space-between; align-items:baseline;
+    font-family:'Space Mono',monospace; margin-bottom:16px;
+  }
+  .cart-total .amt{font-size:1.3rem; font-weight:700; color:var(--brass);}
+
+  /* ---------- Modal ---------- */
+  .modal{
+    position:fixed; inset:0; z-index:250;
+    display:none; align-items:center; justify-content:center;
+    padding:20px;
+  }
+  .modal.open{display:flex;}
+  .modal-backdrop{position:absolute; inset:0; background:#000000a0;}
+  .modal-box{
+    position:relative; z-index:2;
+    background:var(--panel); border:1px solid var(--brass-line);
+    max-width:420px; width:100%; padding:32px 26px;
+    border-radius:var(--radius); text-align:center;
+  }
+  .modal-box .check{
+    width:52px; height:52px; margin:0 auto 18px;
+    border:1px solid var(--brass); border-radius:50%;
+    display:flex; align-items:center; justify-content:center;
+  }
+  .modal-box .check svg{width:24px; height:24px; color:var(--brass);}
+  .modal-box h3{font-size:1.3rem;}
+  .modal-box p{color:var(--paper-dim); margin-top:10px; font-size:0.92rem;}
+  .modal-box .ref{
+    margin-top:16px; font-family:'Space Mono',monospace; color:var(--brass); font-size:1.1rem; font-weight:700;
+  }
+  .modal-box .btn{margin-top:22px;}
+
+  /* back to top */
+  .to-top{
+    position:fixed; bottom:20px; right:20px; z-index:90;
+    width:44px; height:44px; border-radius:50%;
+    background:var(--brass); color:var(--ink); border:none;
+    display:flex; align-items:center; justify-content:center;
+    cursor:pointer; opacity:0; pointer-events:none; transform:translateY(8px);
+    transition:opacity .2s ease, transform .2s ease;
+  }
+  .to-top.show{opacity:1; pointer-events:auto; transform:translateY(0);}
+  .to-top svg{width:18px; height:18px;}
+
+  /* ---------- Breakpoints ---------- */
+  @media (min-width:640px){
+    .hero-stats{grid-template-columns:repeat(3,auto); justify-content:start; gap:44px;}
+    .product-grid{grid-template-columns:repeat(2,1fr);}
+    .about-figures{grid-template-columns:repeat(2,1fr);}
+    .quote-grid{grid-template-columns:repeat(2,1fr);}
+  }
+
+  @media (min-width:860px){
+    nav.primary-nav{display:block;}
+    .nav-links{display:flex;}
+    .hamburger, .mobile-menu{display:none;}
+    .brand-sub{display:block; font-family:'Space Mono',monospace; font-size:10px; color:var(--muted); letter-spacing:0.08em; margin-top:2px; text-transform:uppercase; font-weight:400;}
+
+    .hero-grid{
+      display:grid; grid-template-columns:1.1fr 0.9fr; align-items:center; gap:40px;
+    }
+    .hero-art{order:2; max-width:none;}
+    .hero-copy{order:1;}
+
+    .service-grid{grid-template-columns:1fr 1fr;}
+    .process-step{grid-template-columns:80px 1fr;}
+    .about-wrap{grid-template-columns:1fr 1fr; gap:60px;}
+    .book-wrap{grid-template-columns:1.3fr 0.9fr;}
+    .field-row{grid-template-columns:1fr 1fr;}
+    .contact-wrap{grid-template-columns:1fr 1fr; gap:60px;}
+    .footer-grid{grid-template-columns:1.3fr 1fr 1fr 1fr;}
+    .footer-bottom{flex-direction:row; justify-content:space-between;}
+  }
+
+  @media (min-width:1024px){
+    .product-grid{grid-template-columns:repeat(3,1fr);}
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ HEADER ============ -->
+<header class="site-header" id="siteHeader">
+  <div class="nav-inner">
+    <a href="#top" class="brand">
+      <svg class="brand-mark" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <circle cx="20" cy="20" r="17" stroke="#c6a15b" stroke-width="1.6"/>
+        <line x1="20" y1="20" x2="20" y2="9" stroke="#c6a15b" stroke-width="1.6" stroke-linecap="round"/>
+        <line x1="20" y1="20" x2="27" y2="24" stroke="#c6a15b" stroke-width="1.6" stroke-linecap="round"/>
+        <circle cx="20" cy="20" r="1.6" fill="#c6a15b"/>
+      </svg>
+      <span>SMATPIE<br class="brand-br"> <span style="display:block; font-size:12px; letter-spacing:0.15em; font-family:'Space Mono',monospace; font-weight:400; color:#c6a15b;">WATCHES</span></span>
+    </a>
+
+    <nav class="primary-nav" aria-label="Primary">
+      <ul class="nav-links">
+        <li><a href="#shop">Shop</a></li>
+        <li><a href="#services">Repairs</a></li>
+        <li><a href="#process">Process</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#book">Book</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+
+    <div class="nav-actions">
+      <button class="icon-btn" id="cartToggle" aria-label="Open bag, 0 items" aria-haspopup="dialog">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 8h12l-1 12H7L6 8Z" stroke-linejoin="round"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>
+        <span class="cart-count mono" id="cartCount" data-count="0">0</span>
+      </button>
+      <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<nav class="mobile-menu" id="mobileMenu" aria-label="Mobile">
+  <a href="#shop" class="mm-link">Shop</a>
+  <a href="#services" class="mm-link">Repairs</a>
+  <a href="#process" class="mm-link">Process</a>
+  <a href="#about" class="mm-link">About</a>
+  <a href="#book" class="mm-link">Book</a>
+  <a href="#faq" class="mm-link">FAQ</a>
+  <a href="#contact" class="mm-link">Contact</a>
+  <div class="mm-foot">Open Tue–Sat, 10:00–18:00<br>+1 (530) 868-6923</div>
+</nav>
+
+<div id="top"></div>
+
+<!-- ============ HERO ============ -->
+<section class="hero" style="border-top:none; padding-top:calc(var(--nav-h) + 40px);">
+  <div class="container hero-grid">
+    <div class="hero-copy">
+      <p class="eyebrow">Sales &amp; repair, under one roof</p>
+      <h1>Timepieces, <em>tended</em><br>for a lifetime.</h1>
+      <p class="hero-lede">We sell watches built to be worn for decades, and we service the ones you already own — cleaning movements, replacing crystals, and fitting new straps by hand at our own bench.</p>
+      <div class="hero-cta">
+        <a href="#shop" class="btn btn-primary">Shop the collection</a>
+        <a href="#book" class="btn btn-ghost">Book a repair</a>
+      </div>
+      <div class="hero-stats">
+        <div class="hero-stat"><div class="num">27<span style="font-size:1rem;">yrs</span></div><div class="label">At the bench</div></div>
+        <div class="hero-stat"><div class="num">6,400+</div><div class="label">Watches serviced</div></div>
+        <div class="hero-stat"><div class="num">18mo</div><div class="label">Repair warranty</div></div>
+      </div>
+    </div>
+
+    <div class="hero-art" aria-hidden="true">
+      <svg viewBox="0 0 600 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="300" cy="300" r="260" stroke="#c6a15b" stroke-opacity="0.18" stroke-width="1"/>
+        <circle cx="300" cy="300" r="220" stroke="#c6a15b" stroke-opacity="0.35" stroke-width="1" stroke-dasharray="2 6"/>
+
+        <!-- bridges -->
+        <path d="M120 220 h140 a14 14 0 0 1 14 14 v70 a14 14 0 0 1 -14 14 h-140 Z" stroke="#c6a15b" stroke-opacity="0.4" stroke-width="1.4"/>
+        <path d="M360 150 h110 a14 14 0 0 1 14 14 v40 a14 14 0 0 1 -14 14 h-110 Z" stroke="#c6a15b" stroke-opacity="0.4" stroke-width="1.4"/>
+
+        <!-- small gear top left -->
+        <g class="gear-slow" style="transform-origin:190px 190px;">
+          <circle cx="190" cy="190" r="38" stroke="#c6a15b" stroke-width="1.4" stroke-dasharray="6 5"/>
+          <circle cx="190" cy="190" r="22" stroke="#c6a15b" stroke-opacity="0.6" stroke-width="1"/>
+          <circle cx="190" cy="190" r="4" fill="#c6a15b"/>
+        </g>
+
+        <!-- mid gear -->
+        <g class="gear-slow-rev" style="transform-origin:400px 230px;">
+          <circle cx="400" cy="230" r="52" stroke="#c6a15b" stroke-width="1.4" stroke-dasharray="7 6"/>
+          <circle cx="400" cy="230" r="30" stroke="#c6a15b" stroke-opacity="0.6" stroke-width="1"/>
+          <circle cx="400" cy="230" r="4" fill="#c6a15b"/>
+        </g>
+
+        <!-- small gear bottom -->
+        <g class="gear-slow" style="transform-origin:250px 400px; animation-duration:55s;">
+          <circle cx="250" cy="400" r="30" stroke="#c6a15b" stroke-width="1.4" stroke-dasharray="5 5"/>
+          <circle cx="250" cy="400" r="16" stroke="#c6a15b" stroke-opacity="0.6" stroke-width="1"/>
+          <circle cx="250" cy="400" r="3.5" fill="#c6a15b"/>
+        </g>
+
+        <!-- balance wheel, oscillating -->
+        <g class="balance-group">
+          <circle cx="300" cy="300" r="70" stroke="#c6a15b" stroke-width="1.8"/>
+          <circle cx="300" cy="300" r="8" fill="#0f141b" stroke="#c6a15b" stroke-width="1.6"/>
+          <line x1="300" y1="230" x2="300" y2="250" stroke="#c6a15b" stroke-width="1.8" stroke-linecap="round"/>
+          <line x1="300" y1="350" x2="300" y2="370" stroke="#c6a15b" stroke-width="1.8" stroke-linecap="round"/>
+          <line x1="230" y1="300" x2="250" y2="300" stroke="#c6a15b" stroke-width="1.8" stroke-linecap="round"/>
+          <line x1="350" y1="300" x2="370" y2="300" stroke="#c6a15b" stroke-width="1.8" stroke-linecap="round"/>
+          <path d="M300 300 m0 -46 a46 46 0 0 1 32 78" stroke="#c6a15b" stroke-width="1" stroke-opacity="0.5" fill="none"/>
+        </g>
+
+        <circle cx="300" cy="300" r="3" fill="#c6a15b"/>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SHOP ============ -->
+<section id="shop">
+  <div class="container">
+    <div class="section-head">
+      <p class="eyebrow">Collection</p>
+      <h2>Watches and accessories, chosen to last.</h2>
+      <p>Every piece we carry is chosen for how it wears in year ten, not just year one. Filter by category, add to your bag, and check out — no account required.</p>
+    </div>
+
+    <div class="filter-row" id="filterRow">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="watches">Watches</button>
+      <button class="filter-btn" data-filter="straps">Straps &amp; Bracelets</button>
+      <button class="filter-btn" data-filter="storage">Cases &amp; Storage</button>
+      <button class="filter-btn" data-filter="tools">Tools &amp; Care</button>
+    </div>
+
+    <div class="product-grid" id="productGrid"><!-- filled by JS --></div>
+  </div>
+</section>
+
+<!-- ============ SERVICES ============ -->
+<section id="services">
+  <div class="container">
+    <div class="section-head">
+      <p class="eyebrow">Repairs</p>
+      <h2>Bench work, priced plainly.</h2>
+      <p>These are our common jobs and typical starting prices. Every repair begins with a free inspection, so the number you're quoted is the number you pay — no surprises at pickup.</p>
+    </div>
+
+    <div class="service-grid">
+      <div class="service-row">
+        <div class="top"><h3>Movement service &amp; cleaning</h3><span class="service-price">from $120</span></div>
+        <p>Full disassembly, ultrasonic cleaning, fresh lubrication, and reassembly. Recommended every 4–5 years for mechanical watches.</p>
+      </div>
+      <div class="service-row">
+        <div class="top"><h3>Battery replacement</h3><span class="service-price">from $18</span></div>
+        <p>Same-visit swap for most quartz watches, including a fresh gasket where the case calls for one.</p>
+      </div>
+      <div class="service-row">
+        <div class="top"><h3>Crystal replacement</h3><span class="service-price">from $45</span></div>
+        <p>Scratched or cracked glass, replaced and refit to the original case tolerances.</p>
+      </div>
+      <div class="service-row">
+        <div class="top"><h3>Strap or bracelet fitting</h3><span class="service-price">from $15</span></div>
+        <p>New leather, rubber, or metal fitted and sized to your wrist while you wait.</p>
+      </div>
+      <div class="service-row">
+        <div class="top"><h3>Water resistance test &amp; reseal</h3><span class="service-price">from $55</span></div>
+        <p>Pressure testing plus gasket replacement, done before summer or after any case has been opened.</p>
+      </div>
+      <div class="service-row">
+        <div class="top"><h3>Full vintage restoration</h3><span class="service-price">quote required</span></div>
+        <p>Dial, hand, and case refinishing for older pieces. Every restoration is quoted individually after inspection.</p>
+      </div>
+    </div>
+
+    <div class="service-cta">
+      <p class="mono" style="font-size:12.5px; color:var(--muted);">Don't see your issue listed?</p>
+      <a href="#book" class="btn btn-primary">Book a free inspection</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PROCESS ============ -->
+<section id="process">
+  <div class="container">
+    <div class="section-head">
+      <p class="eyebrow">How a repair runs</p>
+      <h2>From your door to the bench and back.</h2>
+    </div>
+
+    <div class="process">
+      <div class="process-step">
+        <div class="step-num mono">01</div>
+        <div><h4>Intake &amp; inspection</h4><p>Bring your watch in or mail it with our prepaid label. We log its condition and photograph it before anything is opened.</p></div>
+      </div>
+      <div class="process-step">
+        <div class="step-num mono">02</div>
+        <div><h4>Diagnosis &amp; quote</h4><p>Our watchmaker identifies the issue and sends a written quote. Nothing is repaired until you approve it.</p></div>
+      </div>
+      <div class="process-step">
+        <div class="step-num mono">03</div>
+        <div><h4>Approval</h4><p>Approve by email or text. You can also ask questions or request photos of the movement at this stage.</p></div>
+      </div>
+      <div class="process-step">
+        <div class="step-num mono">04</div>
+        <div><h4>Repair at the bench</h4><p>Your watch is worked on by one watchmaker start to finish, not passed between stations.</p></div>
+      </div>
+      <div class="process-step">
+        <div class="step-num mono">05</div>
+        <div><h4>Quality check &amp; timing test</h4><p>Every repair is timed across positions for several days before it's signed off.</p></div>
+      </div>
+      <div class="process-step">
+        <div class="step-num mono">06</div>
+        <div><h4>Ready for pickup or return</h4><p>We call or email when it's ready, and ship insured if you're not local.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ABOUT ============ -->
+<section id="about">
+  <div class="container about-wrap">
+    <div class="about-copy">
+      <p class="eyebrow">About the workshop</p>
+      <h2 style="margin-top:14px; font-size:clamp(1.9rem,5vw,2.6rem);">Small enough to know your watch by name.</h2>
+      <p style="margin-top:18px;">Smatpie Watches started as a single bench and a stubborn belief: a watch is a machine, and machines can be understood, opened, and made right again. We still work that way — one watchmaker per repair, from intake to timing test.</p>
+      <p>We sell watches for the same reason we fix them: because a good mechanical piece, looked after properly, will outlast whoever buys it. Everything in our shop is chosen with that in mind, and everything we repair is treated like it's meant to be worn for another fifty years.</p>
+    </div>
+    <div class="about-figures">
+      <div class="fig"><div class="num">1</div><div class="lbl">Watchmaker per repair</div></div>
+      <div class="fig"><div class="num">4–7</div><div class="lbl">Day average turnaround</div></div>
+      <div class="fig"><div class="num">18mo</div><div class="lbl">Warranty on all repairs</div></div>
+      <div class="fig"><div class="num">100%</div><div class="lbl">Quotes before work begins</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TESTIMONIALS ============ -->
+<section id="notes">
+  <div class="container">
+    <div class="section-head">
+      <p class="eyebrow">Notes from customers</p>
+      <h2>What people say after picking their watch back up.</h2>
+    </div>
+    <div class="quote-grid">
+      <div class="quote-card">
+        <span class="quote-mark">&ldquo;</span>
+        <p class="quote-text">My grandfather's watch hadn't run in years. It came back keeping time better than watches I've bought new.</p>
+        <p class="quote-attrib">— Dana R., Movement Service</p>
+      </div>
+      <div class="quote-card">
+        <span class="quote-mark">&ldquo;</span>
+        <p class="quote-text">They quoted me before touching anything and called when the price would've changed. That alone earned my next repair too.</p>
+        <p class="quote-attrib">— Marcus T., Crystal Replacement</p>
+      </div>
+      <div class="quote-card">
+        <span class="quote-mark">&ldquo;</span>
+        <p class="quote-text">Bought the Northline Diver in the shop and had a strap fitted while I waited. Wearing it every day since.</p>
+        <p class="quote-attrib">— Priya S., Watches</p>
+      </div>
+      <div class="quote-card">
+        <span class="quote-mark">&ldquo;</span>
+        <p class="quote-text">Mailed in a watch from three states away and got clear updates the whole time. Easier than any local shop I'd tried.</p>
+        <p class="quote-attrib">— Owen L., Full Restoration</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ BOOKING ============ -->
+<section id="book">
+  <div class="container book-wrap">
+    <div>
+      <div class="section-head" style="margin-bottom:26px;">
+        <p class="eyebrow">Book a repair</p>
+        <h2>Tell us about your watch.</h2>
+        <p>We'll confirm your inspection window within one business day. There's no charge until you approve a quote.</p>
+      </div>
+
+      <div class="form-card">
+        <form id="bookingForm" novalidate>
+          <div class="field-row">
+            <div class="field" id="field-name">
+              <label for="bk-name">Full name <span class="req">*</span></label>
+              <input type="text" id="bk-name" name="name" autocomplete="name">
+              <p class="field-error">Please enter your name.</p>
+            </div>
+            <div class="field" id="field-email">
+              <label for="bk-email">Email <span class="req">*</span></label>
+              <input type="email" id="bk-email" name="email" autocomplete="email">
+              <p class="field-error">Please enter a valid email.</p>
+            </div>
+          </div>
+
+          <div class="field-row">
+            <div class="field" id="field-watch">
+              <label for="bk-watch">Watch brand &amp; model <span class="req">*</span></label>
+              <input type="text" id="bk-watch" name="watch" placeholder="e.g. Smatpie Field, 2019">
+              <p class="field-error">Let us know what watch it is.</p>
+            </div>
+            <div class="field" id="field-service">
+              <label for="bk-service">Service needed <span class="req">*</span></label>
+              <select id="bk-service" name="service">
+                <option value="">Select a service</option>
+                <option>Movement service &amp; cleaning</option>
+                <option>Battery replacement</option>
+                <option>Crystal replacement</option>
+                <option>Strap or bracelet fitting</option>
+                <option>Water resistance test &amp; reseal</option>
+                <option>Full vintage restoration</option>
+                <option>Not sure — please advise</option>
+              </select>
+              <p class="field-error">Please choose a service.</p>
+            </div>
+          </div>
+
+          <div class="field" id="field-date">
+            <label for="bk-date">Preferred drop-off date <span class="req">*</span></label>
+            <input type="date" id="bk-date" name="date">
+            <p class="field-error">Please pick a date.</p>
+          </div>
+
+          <div class="field">
+            <label for="bk-notes">Notes on the issue</label>
+            <textarea id="bk-notes" name="notes" placeholder="Anything you've noticed — stops running, loses time, water exposure, etc."></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-block">Request inspection</button>
+        </form>
+
+        <div class="form-confirm" id="bookingConfirm">
+          <p class="mono" style="font-size:12px; color:var(--brass); text-transform:uppercase; letter-spacing:0.06em;">Request received</p>
+          <p style="margin-top:8px;">Thank you — we'll email a confirmed drop-off window within one business day.</p>
+          <p class="ref" id="bookingRef"></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="service-list-side">
+      <div class="side-note">
+        <h4>No charge to inspect</h4>
+        <p>We diagnose and quote every watch for free. You only pay if you approve the repair.</p>
+      </div>
+      <div class="side-note">
+        <h4>Mail-in accepted</h4>
+        <p>Not local? We'll send a prepaid, insured shipping label once your request is confirmed.</p>
+      </div>
+      <div class="side-note">
+        <h4>18-month warranty</h4>
+        <p>Every repair we perform is covered for 18 months against the same issue recurring.</p>
+      </div>
+      <div class="side-note">
+        <h4>One watchmaker, start to finish</h4>
+        <p>Your watch is handled by a single person for its whole visit, not passed between technicians.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section id="faq">
+  <div class="container">
+    <div class="section-head">
+      <p class="eyebrow">Questions</p>
+      <h2>Good to know before you visit.</h2>
+    </div>
+
+    <div class="faq-list" id="faqList">
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          <h3>Do you work on all watch brands?</h3><span class="faq-icon"></span>
+        </button>
+        <div class="faq-a"><p>Yes — mechanical, automatic, and quartz, from everyday brands to vintage pieces. If a part needs to be sourced or fabricated, we'll tell you during the quote.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          <h3>How long does a typical repair take?</h3><span class="faq-icon"></span>
+        </button>
+        <div class="faq-a"><p>Most jobs like battery swaps or strap fittings are done same-day. Movement services usually take 4–7 business days; restorations vary and are estimated at quote time.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          <h3>Do you offer a warranty on repairs?</h3><span class="faq-icon"></span>
+        </button>
+        <div class="faq-a"><p>Every repair carries an 18-month warranty against the same issue recurring, covering parts and labor.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          <h3>Can I mail in my watch?</h3><span class="faq-icon"></span>
+        </button>
+        <div class="faq-a"><p>Yes. Once your inspection request is confirmed, we send a prepaid, insured shipping label and the same free quote process applies.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          <h3>Do you buy or trade used watches?</h3><span class="faq-icon"></span>
+        </button>
+        <div class="faq-a"><p>We do, on a case-by-case basis. Bring it in or describe it through the contact form and we'll let you know what we can offer.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          <h3>What's your return policy on shop items?</h3><span class="faq-icon"></span>
+        </button>
+        <div class="faq-a"><p>Unworn items may be returned within 30 days with proof of purchase. Straps and tools must be in original packaging.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTACT ============ -->
+<section id="contact">
+  <div class="container contact-wrap">
+    <div class="contact-block">
+      <div class="section-head" style="margin-bottom:6px;">
+        <p class="eyebrow">Visit or reach us</p>
+        <h2>The shop &amp; the bench.</h2>
+      </div>
+
+      <div class="contact-line">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21Z"/><circle cx="12" cy="9.5" r="2.4"/></svg>
+        <p>1740 Sawtelle Boulevard, Suite 210<br>Los Angeles, CA 90025</p>
+      </div>
+      <div class="contact-line">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 5h16v14H4z"/><path d="m4 6 8 7 8-7"/></svg>
+        <a href="mailto:hello@smatpiewatches.example">hello@smatpiewatches.example</a>
+      </div>
+      <div class="contact-line">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.7a2 2 0 0 1-.5 2.1L8 9.7a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.5 2.7.6a2 2 0 0 1 1.7 2Z"/></svg>
+        <a href="tel:+15308686923">+1 (530) 868-6923</a>
+      </div>
+
+      <table class="hours-table">
+        <tr><td>Tuesday – Friday</td><td>10:00 – 18:00</td></tr>
+        <tr><td>Saturday</td><td>10:00 – 16:00</td></tr>
+        <tr><td>Sunday – Monday</td><td>Closed</td></tr>
+      </table>
+    </div>
+
+    <div>
+      <div class="newsletter">
+        <h3>Care notes, twice a month</h3>
+        <p>Short, useful emails on keeping a watch running well. No sales pitches, unsubscribe anytime.</p>
+        <form class="newsletter-form" id="newsletterForm" novalidate>
+          <input type="email" id="nl-email" placeholder="you@example.com" required>
+          <button type="submit" class="btn btn-primary btn-block">Subscribe</button>
+        </form>
+        <p class="newsletter-confirm" id="newsletterConfirm">You're subscribed — first note lands within two weeks.</p>
+      </div>
+
+      <div class="side-note" style="margin-top:22px;">
+        <h4>Prefer to talk it through first?</h4>
+        <p>Call or email before booking if you'd rather describe the issue to a person before sending your watch in.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="#top" class="brand" style="margin-bottom:10px; display:inline-flex;">
+          <svg class="brand-mark" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <circle cx="20" cy="20" r="17" stroke="#c6a15b" stroke-width="1.6"/>
+            <line x1="20" y1="20" x2="20" y2="9" stroke="#c6a15b" stroke-width="1.6" stroke-linecap="round"/>
+            <line x1="20" y1="20" x2="27" y2="24" stroke="#c6a15b" stroke-width="1.6" stroke-linecap="round"/>
+            <circle cx="20" cy="20" r="1.6" fill="#c6a15b"/>
+          </svg>
+          <span>SMATPIE WATCHES</span>
+        </a>
+        <p>Watches and accessories, sold and serviced by hand at our own bench since 1997.</p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Shop</h4>
+        <ul>
+          <li><a href="#shop">Watches</a></li>
+          <li><a href="#shop">Straps &amp; bracelets</a></li>
+          <li><a href="#shop">Cases &amp; storage</a></li>
+          <li><a href="#shop">Tools &amp; care</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Service</h4>
+        <ul>
+          <li><a href="#services">Repair pricing</a></li>
+          <li><a href="#process">Our process</a></li>
+          <li><a href="#book">Book an inspection</a></li>
+          <li><a href="#faq">FAQ</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="mailto:hello@smatpiewatches.example">hello@smatpiewatches.example</a></li>
+          <li><a href="tel:+15308686923">+1 (530) 868-6923</a></li>
+          <li><a href="#contact">1740 Sawtelle Blvd, Los Angeles</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; <span id="year"></span> Smatpie Watches. All rights reserved.</p>
+      <p>Built for a single bench, one watch at a time.</p>
+    </div>
+  </div>
+</footer>
+
+<!-- ============ CART DRAWER ============ -->
+<div class="overlay" id="overlay"></div>
+<aside class="drawer" id="cartDrawer" role="dialog" aria-modal="true" aria-label="Shopping bag">
+  <div class="drawer-head">
+    <h3>Your bag</h3>
+    <button class="icon-btn" id="closeDrawer" aria-label="Close bag">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 6l12 12M18 6 6 18"/></svg>
+    </button>
+  </div>
+  <div class="drawer-body" id="cartBody">
+    <p class="cart-empty">Your bag is empty. Add something from the collection.</p>
+  </div>
+  <div class="drawer-foot">
+    <div class="cart-total">
+      <span class="mono">Total</span>
+      <span class="amt" id="cartTotal">$0</span>
+    </div>
+    <button class="btn btn-primary btn-block" id="checkoutBtn">Checkout</button>
+  </div>
+</aside>
+
+<!-- ============ ORDER MODAL ============ -->
+<div class="modal" id="orderModal" role="dialog" aria-modal="true" aria-label="Order confirmation">
+  <div class="modal-backdrop" id="modalBackdrop"></div>
+  <div class="modal-box">
+    <div class="check">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg>
+    </div>
+    <h3>Order placed</h3>
+    <p>We've received your order and will email a confirmation with shipping details shortly.</p>
+    <p class="ref" id="orderRef"></p>
+    <button class="btn btn-primary" id="closeModal">Continue browsing</button>
+  </div>
+</div>
+
+<button class="to-top" id="toTop" aria-label="Back to top">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+</button>
+
+<script>
+(function(){
+  "use strict";
+
+  /* ---------- helpers ---------- */
+  var $ = function(sel, ctx){ return (ctx||document).querySelector(sel); };
+  var $all = function(sel, ctx){ return Array.prototype.slice.call((ctx||document).querySelectorAll(sel)); };
+
+  /* ---------- footer year ---------- */
+  $('#year').textContent = new Date().getFullYear();
+
+  /* ---------- header scroll state ---------- */
+  var header = $('#siteHeader');
+  var toTopBtn = $('#toTop');
+  window.addEventListener('scroll', function(){
+    var y = window.scrollY || document.documentElement.scrollTop;
+    header.classList.toggle('scrolled', y > 8);
+    toTopBtn.classList.toggle('show', y > 500);
+  });
+  toTopBtn.addEventListener('click', function(){
+    window.scrollTo({top:0, behavior:'smooth'});
+  });
+
+  /* ---------- mobile menu ---------- */
+  var hamburger = $('#hamburger');
+  var mobileMenu = $('#mobileMenu');
+  function closeMobile(){
+    hamburger.classList.remove('open');
+    hamburger.setAttribute('aria-expanded','false');
+    mobileMenu.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  hamburger.addEventListener('click', function(){
+    var open = mobileMenu.classList.toggle('open');
+    hamburger.classList.toggle('open', open);
+    hamburger.setAttribute('aria-expanded', open ? 'true' : 'false');
+    document.body.style.overflow = open ? 'hidden' : '';
+  });
+  $all('.mobile-menu a').forEach(function(a){
+    a.addEventListener('click', closeMobile);
+  });
+
+  /* ---------- product data ---------- */
+  var products = [
+    {
+      id:'w1', cat:'watches', catLabel:'Watches', name:'The Smatpie Field', price:780,
+      desc:'A no-nonsense automatic field watch built to take a knock and keep running.',
+      specs:['Case: 39mm stainless steel','Movement: automatic, 41hr reserve','Water resist: 100m'],
+      icon:'watch'
+    },
+    {
+      id:'w2', cat:'watches', catLabel:'Watches', name:'The Aldergate', price:650,
+      desc:'A slim hand-wound dress watch for the days a screen shouldn\\'t be on your wrist.',
+      specs:['Case: 36mm stainless steel','Movement: hand-wound, 44hr reserve','Water resist: 30m'],
+      icon:'watch'
+    },
+    {
+      id:'w3', cat:'watches', catLabel:'Watches', name:'The Northline Diver', price:890,
+      desc:'A 200m dive watch with a unidirectional bezel and lume that actually lasts till morning.',
+      specs:['Case: 41mm stainless steel','Movement: automatic, 48hr reserve','Water resist: 200m'],
+      icon:'watch'
+    },
+    {
+      id:'s1', cat:'straps', catLabel:'Straps & Bracelets', name:'Chestnut Leather Strap', price:65,
+      desc:'Vegetable-tanned calfskin that breaks in rather than wears out.',
+      specs:['Width: 20mm','Material: full-grain leather','Buckle: included, steel'],
+      icon:'strap'
+    },
+    {
+      id:'s2', cat:'straps', catLabel:'Straps & Bracelets', name:'Milanese Mesh Bracelet', price:95,
+      desc:'Fine woven steel mesh with a micro-adjustable clasp for a fit that never quite loosens.',
+      specs:['Width: 20mm','Material: stainless steel','Clasp: micro-adjust'],
+      icon:'strap'
+    },
+    {
+      id:'s3', cat:'straps', catLabel:'Straps & Bracelets', name:'Rally Strap', price:70,
+      desc:'Perforated calfskin in the motorsport style, for a lighter, sportier look.',
+      specs:['Width: 20mm','Material: perforated calfskin','Buckle: included, steel'],
+      icon:'strap'
+    },
+    {
+      id:'b1', cat:'storage', catLabel:'Cases & Storage', name:'Six-Slot Walnut Watch Box', price:145,
+      desc:'Solid walnut with a glass lid and soft cushions, sized for daily-wear collections.',
+      specs:['Capacity: 6 watches','Material: solid walnut','Lid: hinged glass'],
+      icon:'box'
+    },
+    {
+      id:'b2', cat:'storage', catLabel:'Cases & Storage', name:'Single Watch Travel Roll', price:58,
+      desc:'Canvas and leather roll that keeps one watch padded and scratch-free on the move.',
+      specs:['Capacity: 1 watch','Material: canvas & leather','Closure: snap strap'],
+      icon:'box'
+    },
+    {
+      id:'b3', cat:'storage', catLabel:'Cases & Storage', name:'Rotating Watch Winder', price:210,
+      desc:'A quiet single winder that keeps an automatic watch wound and ready to wear.',
+      specs:['Capacity: 1 watch','Rotation: bi-directional, programmable','Power: mains adapter'],
+      icon:'box'
+    },
+    {
+      id:'t1', cat:'tools', catLabel:'Tools & Care', name:"Watchmaker's Screwdriver Set", price:48,
+      desc:'Six precision drivers for strap changes and battery swaps at home.',
+      specs:['Pieces: 6, sizes 0.6–2.0mm','Handles: knurled steel','Case: fitted roll'],
+      icon:'tool'
+    },
+    {
+      id:'t2', cat:'tools', catLabel:'Tools & Care', name:'Case-Back Opener', price:32,
+      desc:'Adjustable four-pronged opener for snap and screw-down case backs.',
+      specs:['Type: adjustable prong','Fits: most round case backs','Material: steel'],
+      icon:'tool'
+    },
+    {
+      id:'t3', cat:'tools', catLabel:'Tools & Care', name:'Microfiber Polishing Cloths', price:18,
+      desc:'A pair of lint-free cloths for crystals, cases, and bracelets alike.',
+      specs:['Pieces: 2','Material: microfiber','Size: 12in x 12in'],
+      icon:'tool'
+    }
+  ];
+
+  var ICONS = {
+    watch: '<svg viewBox="0 0 64 64" fill="none" stroke="#c6a15b" stroke-width="1.6"><circle cx="32" cy="32" r="18"/><path d="M32 22v10l7 5"/><path d="M26 6h12l-1.5 8h-9L26 6Z"/><path d="M26 58h12l-1.5-8h-9L26 58Z"/></svg>',
+    strap: '<svg viewBox="0 0 64 64" fill="none" stroke="#c6a15b" stroke-width="1.6"><rect x="24" y="4" width="16" height="18" rx="3"/><rect x="24" y="42" width="16" height="18" rx="3"/><rect x="20" y="22" width="24" height="20" rx="2"/><circle cx="32" cy="32" r="4"/></svg>',
+    box: '<svg viewBox="0 0 64 64" fill="none" stroke="#c6a15b" stroke-width="1.6"><rect x="8" y="20" width="48" height="34" rx="2"/><path d="M8 30h48"/><path d="M22 20V14a4 4 0 0 1 4-4h12a4 4 0 0 1 4 4v6"/><circle cx="32" cy="42" r="5"/></svg>',
+    tool: '<svg viewBox="0 0 64 64" fill="none" stroke="#c6a15b" stroke-width="1.6"><path d="M42 8 14 36l-4 14 14-4 28-28Z"/><path d="M36 14l14 14"/><circle cx="16" cy="48" r="3"/></svg>'
+  };
+
+  var money = function(n){ return '$' + n.toLocaleString('en-US'); };
+
+  /* ---------- render products ---------- */
+  var grid = $('#productGrid');
+  function renderProducts(filter){
+    grid.innerHTML = '';
+    products.filter(function(p){ return filter === 'all' || p.cat === filter; }).forEach(function(p){
+      var card = document.createElement('article');
+      card.className = 'product-card';
+      card.setAttribute('data-cat', p.cat);
+      card.innerHTML =
+        '<div class="product-visual">' + ICONS[p.icon] + '</div>' +
+        '<div class="product-cat mono">' + p.catLabel + '</div>' +
+        '<h3>' + p.name + '</h3>' +
+        '<p class="product-desc">' + p.desc + '</p>' +
+        '<ul class="spec-list">' + p.specs.map(function(s){
+          var parts = s.split(': ');
+          return '<li>' + parts[0] + ': <span>' + parts[1] + '</span></li>';
+        }).join('') + '</ul>' +
+        '<div class="product-foot">' +
+          '<span class="price">' + money(p.price) + '</span>' +
+          '<button class="add-btn" data-id="' + p.id + '">Add to bag</button>' +
+        '</div>';
+      grid.appendChild(card);
+    });
+    bindAddButtons();
+  }
+  renderProducts('all');
+
+  $all('.filter-btn').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      $all('.filter-btn').forEach(function(b){ b.classList.remove('active'); });
+      btn.classList.add('active');
+      renderProducts(btn.getAttribute('data-filter'));
+    });
+  });
+
+  /* ---------- cart ---------- */
+  var cart = []; // {id, qty}
+
+  function findProduct(id){ return products.filter(function(p){ return p.id === id; })[0]; }
+
+  function bindAddButtons(){
+    $all('.add-btn').forEach(function(btn){
+      btn.addEventListener('click', function(){
+        addToCart(btn.getAttribute('data-id'));
+        btn.textContent = 'Added ✓';
+        btn.classList.add('added');
+        setTimeout(function(){
+          btn.textContent = 'Add to bag';
+          btn.classList.remove('added');
+        }, 1200);
+      });
+    });
+  }
+
+  function addToCart(id){
+    var existing = cart.filter(function(c){ return c.id === id; })[0];
+    if(existing){ existing.qty += 1; }
+    else { cart.push({id:id, qty:1}); }
+    renderCart();
+  }
+
+  function changeQty(id, delta){
+    var item = cart.filter(function(c){ return c.id === id; })[0];
+    if(!item) return;
+    item.qty += delta;
+    if(item.qty <= 0){
+      cart = cart.filter(function(c){ return c.id !== id; });
+    }
+    renderCart();
+  }
+
+  function removeItem(id){
+    cart = cart.filter(function(c){ return c.id !== id; });
+    renderCart();
+  }
+
+  var cartBody = $('#cartBody');
+  var cartCount = $('#cartCount');
+  var cartTotal = $('#cartTotal');
+  var cartToggleBtn = $('#cartToggle');
+
+  function renderCart(){
+    var totalQty = cart.reduce(function(sum,c){ return sum + c.qty; }, 0);
+    cartCount.textContent = totalQty;
+    cartCount.setAttribute('data-count', totalQty);
+    cartToggleBtn.setAttribute('aria-label', 'Open bag, ' + totalQty + ' items');
+
+    if(cart.length === 0){
+      cartBody.innerHTML = '<p class="cart-empty">Your bag is empty. Add something from the collection.</p>';
+      cartTotal.textContent = '$0';
+      return;
+    }
+
+    var total = 0;
+    cartBody.innerHTML = cart.map(function(c){
+      var p = findProduct(c.id);
+      var lineTotal = p.price * c.qty;
+      total += lineTotal;
+      return (
+        '<div class="cart-item" data-id="' + p.id + '">' +
+          '<div class="cart-item-visual">' + ICONS[p.icon] + '</div>' +
+          '<div>' +
+            '<h5>' + p.name + '</h5>' +
+            '<div class="cart-item-price mono">' + money(lineTotal) + '</div>' +
+            '<div class="qty-row">' +
+              '<button class="qty-btn" data-action="dec" aria-label="Decrease quantity">−</button>' +
+              '<span class="mono" style="font-size:12px; min-width:14px; text-align:center;">' + c.qty + '</span>' +
+              '<button class="qty-btn" data-action="inc" aria-label="Increase quantity">+</button>' +
+            '</div>' +
+          '</div>' +
+          '<button class="cart-remove" data-action="remove">Remove</button>' +
+        '</div>'
+      );
+    }).join('');
+    cartTotal.textContent = money(total);
+
+    $all('.cart-item', cartBody).forEach(function(row){
+      var id = row.getAttribute('data-id');
+      row.querySelector('[data-action="inc"]').addEventListener('click', function(){ changeQty(id, 1); });
+      row.querySelector('[data-action="dec"]').addEventListener('click', function(){ changeQty(id, -1); });
+      row.querySelector('[data-action="remove"]').addEventListener('click', function(){ removeItem(id); });
+    });
+  }
+
+  /* ---------- drawer open/close ---------- */
+  var overlay = $('#overlay');
+  var drawer = $('#cartDrawer');
+  function openDrawer(){
+    drawer.classList.add('open');
+    overlay.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeDrawer(){
+    drawer.classList.remove('open');
+    overlay.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  cartToggleBtn.addEventListener('click', openDrawer);
+  $('#closeDrawer').addEventListener('click', closeDrawer);
+  overlay.addEventListener('click', function(){ closeDrawer(); closeModal(); });
+
+  /* ---------- checkout / order modal ---------- */
+  var orderModal = $('#orderModal');
+  function openModal(){
+    orderModal.classList.add('open');
+  }
+  function closeModal(){
+    orderModal.classList.remove('open');
+  }
+  $('#closeModal').addEventListener('click', closeModal);
+  $('#modalBackdrop').addEventListener('click', closeModal);
+
+  $('#checkoutBtn').addEventListener('click', function(){
+    if(cart.length === 0){
+      cartBody.innerHTML = '<p class="cart-empty">Add at least one item before checking out.</p>';
+      return;
+    }
+    var orderNum = 'MWC-' + Math.floor(100000 + Math.random()*900000);
+    $('#orderRef').textContent = 'Order #' + orderNum;
+    cart = [];
+    renderCart();
+    closeDrawer();
+    openModal();
+  });
+
+  /* ---------- booking form ---------- */
+  var bookingForm = $('#bookingForm');
+  var bookingConfirm = $('#bookingConfirm');
+
+  function setInvalid(fieldId, invalid){
+    var f = document.getElementById(fieldId);
+    f.classList.toggle('invalid', invalid);
+  }
+
+  bookingForm.addEventListener('submit', function(e){
+    e.preventDefault();
+    var name = $('#bk-name').value.trim();
+    var email = $('#bk-email').value.trim();
+    var watch = $('#bk-watch').value.trim();
+    var service = $('#bk-service').value;
+    var date = $('#bk-date').value;
+    var emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+
+    var valid = true;
+    setInvalid('field-name', !name); if(!name) valid = false;
+    setInvalid('field-email', !emailOk); if(!emailOk) valid = false;
+    setInvalid('field-watch', !watch); if(!watch) valid = false;
+    setInvalid('field-service', !service); if(!service) valid = false;
+    setInvalid('field-date', !date); if(!date) valid = false;
+
+    if(!valid) return;
+
+    var ref = 'RPR-' + Math.floor(10000 + Math.random()*90000);
+    $('#bookingRef').textContent = 'Reference ' + ref;
+    bookingConfirm.classList.add('show');
+    bookingForm.reset();
+    bookingConfirm.scrollIntoView({behavior:'smooth', block:'nearest'});
+  });
+
+  /* ---------- newsletter form ---------- */
+  var nlForm = $('#newsletterForm');
+  var nlConfirm = $('#newsletterConfirm');
+  nlForm.addEventListener('submit', function(e){
+    e.preventDefault();
+    var email = $('#nl-email').value.trim();
+    var ok = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    if(!ok){
+      $('#nl-email').style.borderColor = 'var(--danger)';
+      return;
+    }
+    $('#nl-email').style.borderColor = '';
+    nlConfirm.classList.add('show');
+    nlForm.reset();
+  });
+
+  /* ---------- FAQ accordion ---------- */
+  $all('.faq-item').forEach(function(item){
+    var btn = item.querySelector('.faq-q');
+    var answer = item.querySelector('.faq-a');
+    btn.addEventListener('click', function(){
+      var isOpen = item.classList.contains('open');
+      // close all
+      $all('.faq-item').forEach(function(other){
+        other.classList.remove('open');
+        other.querySelector('.faq-q').setAttribute('aria-expanded','false');
+        other.querySelector('.faq-a').style.maxHeight = null;
+      });
+      if(!isOpen){
+        item.classList.add('open');
+        btn.setAttribute('aria-expanded','true');
+        answer.style.maxHeight = answer.scrollHeight + 'px';
+      }
+    });
+  });
+
+  /* ---------- smooth-scroll offset for fixed header on hash links ---------- */
+  $all('a[href^="#"]').forEach(function(a){
+    a.addEventListener('click', function(e){
+      var id = a.getAttribute('href');
+      if(id.length < 2) return;
+      var target = document.querySelector(id);
+      if(!target) return;
+      e.preventDefault();
+      var y = target.getBoundingClientRect().top + window.pageYOffset - 56;
+      window.scrollTo({top:y, behavior:'smooth'});
+      history.pushState(null, '', id);
+    });
+  });
+
+  renderCart();
+})();
+</script>
+</body>
+</html>
